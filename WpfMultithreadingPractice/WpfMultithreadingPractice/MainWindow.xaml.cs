@@ -4,6 +4,7 @@
     using System.Diagnostics;
     using System.Threading;
     using System.Windows;
+    using WpfMultithreadingPractice.Models;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -69,7 +70,7 @@
         /// <param name="e"></param>
         private void P13TwoThreadsButton_Click(object sender, RoutedEventArgs e)
         {
-            // 別のスレッドにやらせる仕事 その1
+            // 別のスレッドにやらせる仕事 その1（ラムダ式を渡すなら）
             new Thread(new ThreadStart(
                 () =>
                 {
@@ -82,39 +83,11 @@
             )).Start();
             // ここは通り抜けます
 
-            // 別のスレッドにやらせる仕事 その2
-            new Thread(new ThreadStart(
-                () =>
-                {
-                    // 重たい処理
-                    for (var i = 0; i < 10000; i++)
-                    {
-                        Trace.Write("Nice!");
-                    }
-                }
-            )).Start();
+            // 別のスレッドにやらせる仕事 その2（メソッドを渡すなら）
+            new Thread(new ThreadStart(DoNiceWork)).Start();
             // ここは通り抜けます
 
             // この UIスレッド は先に終わりますが、上の２つのスレッドは継続します
-        }
-
-        /// <summary>
-        /// List I1-7
-        /// =========
-        /// 
-        /// [P15 runnable]ボタン押下時
-        /// C# に Runnableインターフェースは無いので、ThreadStartの説明に変更
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void P15RunnableButton_Click(object sender, RoutedEventArgs e)
-        {
-            // ThreadStartクラスにメソッドを渡すことができます
-            var goodThreadStart = new ThreadStart(DoGoodWork);
-            var niceThreadStart = new ThreadStart(DoNiceWork);
-
-            new Thread(goodThreadStart).Start();
-            new Thread(niceThreadStart).Start();
         }
 
         private void DoGoodWork()
@@ -133,6 +106,25 @@
             {
                 Trace.Write("Nice!");
             }
+        }
+
+        /// <summary>
+        /// List I1-7
+        /// =========
+        /// 
+        /// [P15 runnable]ボタン押下時
+        /// C# に Runnableインターフェースは無いので、ThreadStartの説明に変更
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void P15RunnableButton_Click(object sender, RoutedEventArgs e)
+        {
+            var goodThreadStart = new ThreadStart(DoGoodWork);
+            // 動的に生成したクラスのメソッドも渡すことができます
+            var foodThreadStart = new ThreadStart(new FoodPrinter("Pineapple").PrintName10000times);
+
+            new Thread(goodThreadStart).Start();
+            new Thread(foodThreadStart).Start();
         }
     }
 }
