@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
 
     <WrapPanel Margin="24,18,24,18">
-        <Button Width="180" Height="20" Content="P3 single threaded" Click="Button_Click"/>
+        <Button Width="180" Height="20" Content="P3 single threaded" Click="P3SingleThreadedButton_Click"/>
     </WrapPanel>
     
 </Window>

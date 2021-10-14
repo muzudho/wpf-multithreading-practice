@@ -19,11 +19,11 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void P3SingleThreadedButton_Click(object sender, RoutedEventArgs e)
         {
             for(var i=0; i<10000; i++)
             {
-                Trace.WriteLine("Good!");
+                Trace.Write("Good!");
             }
         }
     }
