@@ -9,6 +9,8 @@
 
     <WrapPanel Margin="24,18,24,18">
         <Button Width="180" Height="20" Content="P3 single threaded" Click="P3SingleThreadedButton_Click"/>
+        <Button Width="180" Height="20" Content="P6 my thread" Click="P6MyThreadButton_Click"/>
+        <Button Width="180" Height="20" Content="P13 two threads" Click="P13TwoThreadsButton_Click"/>
     </WrapPanel>
     
 </Window>
