@@ -97,5 +97,42 @@
 
             // この UIスレッド は先に終わりますが、上の２つのスレッドは継続します
         }
+
+        /// <summary>
+        /// List I1-7
+        /// =========
+        /// 
+        /// [P15 runnable]ボタン押下時
+        /// C# に Runnableインターフェースは無いので、ThreadStartの説明に変更
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void P15RunnableButton_Click(object sender, RoutedEventArgs e)
+        {
+            // ThreadStartクラスにメソッドを渡すことができます
+            var goodThreadStart = new ThreadStart(DoGoodWork);
+            var niceThreadStart = new ThreadStart(DoNiceWork);
+
+            new Thread(goodThreadStart).Start();
+            new Thread(niceThreadStart).Start();
+        }
+
+        private void DoGoodWork()
+        {
+            // 重たい処理
+            for (var i = 0; i < 10000; i++)
+            {
+                Trace.Write("Good!");
+            }
+        }
+
+        private void DoNiceWork()
+        {
+            // 重たい処理
+            for (var i = 0; i < 10000; i++)
+            {
+                Trace.Write("Nice!");
+            }
+        }
     }
 }
