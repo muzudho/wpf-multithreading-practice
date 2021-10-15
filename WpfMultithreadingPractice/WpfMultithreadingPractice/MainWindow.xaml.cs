@@ -26,7 +26,7 @@
         /// <param name="e"></param>
         private void P3SingleThreadedButton_Click(object sender, RoutedEventArgs e)
         {
-            for(var i=0; i<10000; i++)
+            for (var i = 0; i < 10000; i++)
             {
                 Trace.Write("Good!");
             }
@@ -137,7 +137,7 @@
         /// <param name="e"></param>
         private void P17SleepButton_Click(object sender, RoutedEventArgs e)
         {
-            for(var i=0; i<10; i++)
+            for (var i = 0; i < 10; i++)
             {
                 Trace.Write("Good!");
                 try
@@ -171,12 +171,20 @@
             var eBank = new BadBank("EccentricBank", 5000);
             var fBank = new BadBank("FatalBank", 1000);
 
+            // ロックを使う銀行
+            var gBank = new LockBank("GrandBank", 3000);
+            var hBank = new LockBank("HollyBank", 5000);
+            var iBank = new LockBank("IceBank", 1000);
+
             // Alice さん
             new Thread(new ThreadStart(
                 () =>
                 {
+                    var stopwatch = new Stopwatch();
+                    stopwatch.Start();
+
                     // 重たい処理
-                    for (var i = 0; i < 10000; i++)
+                    for (var i = 0; i < 100000; i++)
                     {
                         // a --> b --> c --> a と 1000 円を移動
                         aBank.Withdraw(1000);
@@ -187,7 +195,16 @@
 
                         cBank.Withdraw(1000);
                         aBank.Deposit(1000);
+                    }
 
+                    stopwatch.Stop();
+                    // 各銀行の残高を調べます
+                    Trace.WriteLine($"Alice [{stopwatch.Elapsed}] {aBank.GetName()}={aBank.GetMoney(),6} {bBank.GetName()}={bBank.GetMoney(),6} {cBank.GetName()}={cBank.GetMoney(),6}");
+
+                    stopwatch.Restart();
+
+                    for (var i = 0; i < 100000; i++)
+                    {
                         // d --> e --> f --> d と 1000 円を移動
                         dBank.Withdraw(1000);
                         eBank.Deposit(1000);
@@ -199,8 +216,28 @@
                         dBank.Deposit(1000);
                     }
 
+                    stopwatch.Stop();
                     // 各銀行の残高を調べます
-                    Trace.WriteLine($"Alice {aBank.GetName()}={aBank.GetMoney()} {bBank.GetName()}={bBank.GetMoney()} {cBank.GetName()}={cBank.GetMoney()} {dBank.GetName()}={dBank.GetMoney()} {eBank.GetName()}={eBank.GetMoney()} {fBank.GetName()}={fBank.GetMoney()}");
+                    Trace.WriteLine($"Alice [{stopwatch.Elapsed}] {dBank.GetName()}={dBank.GetMoney(),6} {eBank.GetName()}={eBank.GetMoney(),6} {fBank.GetName()}={fBank.GetMoney(),6}");
+
+                    stopwatch.Restart();
+
+                    for (var i = 0; i < 100000; i++)
+                    {
+                        // g --> h --> i --> g と 1000 円を移動
+                        gBank.Withdraw(1000);
+                        hBank.Deposit(1000);
+
+                        hBank.Withdraw(1000);
+                        iBank.Deposit(1000);
+
+                        iBank.Withdraw(1000);
+                        gBank.Deposit(1000);
+                    }
+
+                    stopwatch.Stop();
+                    // 各銀行の残高を調べます
+                    Trace.WriteLine($"Alice [{stopwatch.Elapsed}] {gBank.GetName()}={gBank.GetMoney(),6} {hBank.GetName()}={hBank.GetMoney(),6} {iBank.GetName()}={iBank.GetMoney(),6}");
                 }
             )).Start();
 
@@ -208,8 +245,11 @@
             new Thread(new ThreadStart(
                 () =>
                 {
+                    var stopwatch = new Stopwatch();
+                    stopwatch.Start();
+
                     // 重たい処理
-                    for (var i = 0; i < 10000; i++)
+                    for (var i = 0; i < 100000; i++)
                     {
                         // a --> c --> b --> a と 1000 円を移動
                         aBank.Withdraw(1000);
@@ -220,7 +260,16 @@
 
                         bBank.Withdraw(1000);
                         aBank.Deposit(1000);
+                    }
 
+                    stopwatch.Stop();
+                    // 各銀行の残高を調べます
+                    Trace.WriteLine($"Bob   [{stopwatch.Elapsed}] {aBank.GetName()}={aBank.GetMoney(),6} {bBank.GetName()}={bBank.GetMoney(),6} {cBank.GetName()}={cBank.GetMoney(),6}");
+
+                    stopwatch.Restart();
+
+                    for (var i = 0; i < 100000; i++)
+                    {
                         // d --> f --> e --> d と 1000 円を移動
                         dBank.Withdraw(1000);
                         fBank.Deposit(1000);
@@ -232,8 +281,28 @@
                         dBank.Deposit(1000);
                     }
 
+                    stopwatch.Stop();
                     // 各銀行の残高を調べます
-                    Trace.WriteLine($"Bob {aBank.GetName()}={aBank.GetMoney()} {bBank.GetName()}={bBank.GetMoney()} {cBank.GetName()}={cBank.GetMoney()} {dBank.GetName()}={dBank.GetMoney()} {eBank.GetName()}={eBank.GetMoney()} {fBank.GetName()}={fBank.GetMoney()}");
+                    Trace.WriteLine($"Bob   [{stopwatch.Elapsed}] {dBank.GetName()}={dBank.GetMoney(),6} {eBank.GetName()}={eBank.GetMoney(),6} {fBank.GetName()}={fBank.GetMoney(),6}");
+
+                    stopwatch.Restart();
+
+                    for (var i = 0; i < 100000; i++)
+                    {
+                        // g --> h --> i --> g と 1000 円を移動
+                        gBank.Withdraw(1000);
+                        hBank.Deposit(1000);
+
+                        hBank.Withdraw(1000);
+                        iBank.Deposit(1000);
+
+                        iBank.Withdraw(1000);
+                        gBank.Deposit(1000);
+                    }
+
+                    stopwatch.Stop();
+                    // 各銀行の残高を調べます
+                    Trace.WriteLine($"Bob   [{stopwatch.Elapsed}] {gBank.GetName()}={gBank.GetMoney(),6} {hBank.GetName()}={hBank.GetMoney(),6} {iBank.GetName()}={iBank.GetMoney(),6}");
                 }
             )).Start();
         }
