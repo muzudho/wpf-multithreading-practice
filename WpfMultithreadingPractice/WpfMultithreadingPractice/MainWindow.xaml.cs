@@ -306,5 +306,46 @@
                 }
             )).Start();
         }
+
+        /// <summary>
+        /// P26
+        /// ===
+        /// 
+        /// [P26 notify notifyAll wait]ボタン押下時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void P26NotifyNotifyAllWaitButton_Click(object sender, RoutedEventArgs e)
+        {
+            // 3人用のトイレがあります
+            var toiletFor3people = new ToiletForThreePeople();
+
+            var completed = 0;
+
+            // 40人が用を足そうとします
+            var max = 40;
+            for (var i = 0; i < max; i++)
+            {
+                new Thread(new ThreadStart(
+                    // このコードブロックの中では、外側の i を取ると、飛び番になったり、抜け番になったりします
+                    () =>
+                    {
+                        // 用が足せてない間 ブロックします
+                        var roomNumber = toiletFor3people.Enter();
+
+                        if (roomNumber == -1)
+                        {
+                            throw new InvalidOperationException("ここは通りません");
+                        }
+
+                        toiletFor3people.Exit(roomNumber);
+
+                        Interlocked.Increment(ref completed);
+
+                        Trace.WriteLine($"{completed} / {max} people ok");
+                    }
+                )).Start();
+            }
+        }
     }
 }
