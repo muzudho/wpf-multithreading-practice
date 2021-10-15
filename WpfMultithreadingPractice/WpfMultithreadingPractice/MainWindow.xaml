@@ -8,10 +8,12 @@
         Title="MainWindow" Height="450" Width="800">
 
     <WrapPanel Margin="24,18,24,18">
-        <Button Width="180" Height="20" Content="P3 single threaded" Click="P3SingleThreadedButton_Click"/>
-        <Button Width="180" Height="20" Content="P6 my thread" Click="P6MyThreadButton_Click"/>
-        <Button Width="180" Height="20" Content="P13 two threads" Click="P13TwoThreadsButton_Click"/>
-        <Button Width="180" Height="20" Content="P15 runnable" Click="P15RunnableButton_Click"/>
+        <Button Width="180" Height="20" Content="P3 single threaded" Background="#EEFFEE" Click="P3SingleThreadedButton_Click"/>
+        <Button Width="180" Height="20" Content="P6 my thread" Background="#EEFFEE" Click="P6MyThreadButton_Click"/>
+        <Button Width="180" Height="20" Content="P13 two threads" Background="#EEFFEE" Click="P13TwoThreadsButton_Click"/>
+        <Button Width="180" Height="20" Content="P15 runnable" Background="#EEFFEE" Click="P15RunnableButton_Click"/>
+        <Label Width="180" Height="20" Content="P16 thread factory はC#に無い" Padding="0" />
+        <Button Width="180" Height="20" Content="P17 sleep" Background="#EEFFEE" Click="P17SleepButton_Click"/>
     </WrapPanel>
     
 </Window>

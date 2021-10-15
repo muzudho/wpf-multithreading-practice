@@ -126,5 +126,29 @@
             new Thread(goodThreadStart).Start();
             new Thread(foodThreadStart).Start();
         }
+
+        /// <summary>
+        /// List I1-9
+        /// =========
+        /// 
+        /// [P17 sleep]ボタン押下時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void P17SleepButton_Click(object sender, RoutedEventArgs e)
+        {
+            for(var i=0; i<10; i++)
+            {
+                Trace.Write("Good!");
+                try
+                {
+                    Thread.Sleep(1000);
+                }
+                catch (ThreadInterruptedException)
+                {
+                    // Ignored
+                }
+            }
+        }
     }
 }
