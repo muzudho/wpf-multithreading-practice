@@ -150,5 +150,92 @@
                 }
             }
         }
+
+        /// <summary>
+        /// List I1-10
+        /// ==========
+        /// 
+        /// [P20 synchronized method]ボタン押下時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void P20SynchronizedMethodButton_Click(object sender, RoutedEventArgs e)
+        {
+            // 良い銀行
+            var aBank = new GoodBank("AppleBank", 3000);
+            var bBank = new GoodBank("BananaBank", 5000);
+            var cBank = new GoodBank("CherryBank", 1000);
+
+            // 悪い銀行
+            var dBank = new BadBank("DangerBank", 3000);
+            var eBank = new BadBank("EccentricBank", 5000);
+            var fBank = new BadBank("FatalBank", 1000);
+
+            // Alice さん
+            new Thread(new ThreadStart(
+                () =>
+                {
+                    // 重たい処理
+                    for (var i = 0; i < 10000; i++)
+                    {
+                        // a --> b --> c --> a と 1000 円を移動
+                        aBank.Withdraw(1000);
+                        bBank.Deposit(1000);
+
+                        bBank.Withdraw(1000);
+                        cBank.Deposit(1000);
+
+                        cBank.Withdraw(1000);
+                        aBank.Deposit(1000);
+
+                        // d --> e --> f --> d と 1000 円を移動
+                        dBank.Withdraw(1000);
+                        eBank.Deposit(1000);
+
+                        eBank.Withdraw(1000);
+                        fBank.Deposit(1000);
+
+                        fBank.Withdraw(1000);
+                        dBank.Deposit(1000);
+                    }
+
+                    // 各銀行の残高を調べます
+                    Trace.WriteLine($"Alice {aBank.GetName()}={aBank.GetMoney()} {bBank.GetName()}={bBank.GetMoney()} {cBank.GetName()}={cBank.GetMoney()} {dBank.GetName()}={dBank.GetMoney()} {eBank.GetName()}={eBank.GetMoney()} {fBank.GetName()}={fBank.GetMoney()}");
+                }
+            )).Start();
+
+            // Bob さん
+            new Thread(new ThreadStart(
+                () =>
+                {
+                    // 重たい処理
+                    for (var i = 0; i < 10000; i++)
+                    {
+                        // a --> c --> b --> a と 1000 円を移動
+                        aBank.Withdraw(1000);
+                        cBank.Deposit(1000);
+
+                        cBank.Withdraw(1000);
+                        bBank.Deposit(1000);
+
+                        bBank.Withdraw(1000);
+                        aBank.Deposit(1000);
+
+                        // d --> f --> e --> d と 1000 円を移動
+                        dBank.Withdraw(1000);
+                        fBank.Deposit(1000);
+
+                        fBank.Withdraw(1000);
+                        eBank.Deposit(1000);
+
+                        eBank.Withdraw(1000);
+                        dBank.Deposit(1000);
+                    }
+
+                    // 各銀行の残高を調べます
+                    Trace.WriteLine($"Bob {aBank.GetName()}={aBank.GetMoney()} {bBank.GetName()}={bBank.GetMoney()} {cBank.GetName()}={cBank.GetMoney()} {dBank.GetName()}={dBank.GetMoney()} {eBank.GetName()}={eBank.GetMoney()} {fBank.GetName()}={fBank.GetMoney()}");
+                }
+            )).Start();
+        }
     }
 }

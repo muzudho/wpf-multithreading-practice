@@ -14,6 +14,7 @@
         <Button Width="180" Height="20" Content="P15 runnable" Background="#EEFFEE" Click="P15RunnableButton_Click"/>
         <Label Width="180" Height="20" Content="P16 thread factory はC#に無い" Padding="0" />
         <Button Width="180" Height="20" Content="P17 sleep" Background="#EEFFEE" Click="P17SleepButton_Click"/>
+        <Button Width="180" Height="20" Content="P20 synchronized method" Background="#EEFFEE" Click="P20SynchronizedMethodButton_Click"/>
     </WrapPanel>
     
 </Window>
