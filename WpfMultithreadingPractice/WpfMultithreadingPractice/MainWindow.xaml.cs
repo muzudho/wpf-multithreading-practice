@@ -6,6 +6,7 @@
     using System.Windows;
     using WpfMultithreadingPractice.Models;
     using WpfMultithreadingPractice.P50SingleThreadedExecution;
+    using WpfMultithreadingPractice.P58SingleThreadedExecution;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -354,9 +355,14 @@
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void P50SingleThreadedExecutionButton_Click(object sender, RoutedEventArgs e)
+        private void P50SingleThreadedExecutionUnsafeButton_Click(object sender, RoutedEventArgs e)
         {
             MainV50.Enter();
+        }
+
+        private void P58SingleThreadedExecutionThreadSafeButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainV58.Enter();
         }
     }
 }

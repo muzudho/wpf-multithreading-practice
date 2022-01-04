@@ -7,11 +7,11 @@
     /// </summary>
     public class GateV50
     {
-        private int Counter { get; set; } = 0;
-        private string Name { get; set; } = "Nobody";
-        private string Address { get; set; } = "Nowhere";
+        protected int Counter { get; set; } = 0;
+        protected string Name { get; set; } = "Nobody";
+        protected string Address { get; set; } = "Nowhere";
 
-        public void Pass(string name, string address)
+        public virtual void Pass(string name, string address)
         {
             this.Counter++;
             this.Name = name;
@@ -24,7 +24,7 @@
             return $"No.{Counter}: {Name}, {Address}";
         }
 
-        private void Check()
+        protected void Check()
         {
             if (Name.ToCharArray()[0] != Address.ToCharArray()[0])
             {

@@ -16,7 +16,8 @@
         <Button Width="180" Height="20" Content="P17 sleep" Background="#EEFFEE" Click="P17SleepButton_Click"/>
         <Button Width="180" Height="20" Content="P20 synchronized method" Background="#EEFFEE" Click="P20SynchronizedMethodButton_Click"/>
         <Button Width="180" Height="20" Content="P26 notify notifyAll wait" Background="#EEFFEE" Click="P26NotifyNotifyAllWaitButton_Click"/>
-        <Button Width="180" Height="20" Content="P50 Single Threaded Execution" Background="#EEFFEE" Click="P50SingleThreadedExecutionButton_Click"/>
+        <Button Width="270" Height="20" Content="P50 Single Threaded Execution (Unsafe)" Background="#EEFFEE" Click="P50SingleThreadedExecutionUnsafeButton_Click"/>
+        <Button Width="270" Height="20" Content="P58 Single Threaded Execution (Thread safe)" Background="#EEFFEE" Click="P58SingleThreadedExecutionThreadSafeButton_Click"/>
     </WrapPanel>
     
 </Window>
