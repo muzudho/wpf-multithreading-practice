@@ -5,6 +5,7 @@
     using System.Threading;
     using System.Windows;
     using WpfMultithreadingPractice.Models;
+    using WpfMultithreadingPractice.P50SingleThreadedExecution;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -346,6 +347,16 @@
                     }
                 )).Start();
             }
+        }
+
+        /// <summary>
+        /// P50
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void P50SingleThreadedExecutionButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainV50.Enter();
         }
     }
 }

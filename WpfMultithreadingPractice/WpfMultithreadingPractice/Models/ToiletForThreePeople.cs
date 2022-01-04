@@ -1,8 +1,8 @@
-﻿using System.Diagnostics;
-using System.Threading;
-
-namespace WpfMultithreadingPractice.Models
+﻿namespace WpfMultithreadingPractice.Models
 {
+    using System.Diagnostics;
+    using System.Threading;
+
     /// <summary>
     /// P26 notify notifyAll wait
     /// =========================

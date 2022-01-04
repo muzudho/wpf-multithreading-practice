@@ -1,7 +1,7 @@
-﻿using System.Diagnostics;
-
-namespace WpfMultithreadingPractice.Models
+﻿namespace WpfMultithreadingPractice.Models
 {
+    using System.Diagnostics;
+
     public class FoodPrinter
     {
         /// <summary>

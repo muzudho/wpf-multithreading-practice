@@ -1,6 +1,7 @@
 # wpf-multithread-practice
 
 WPFでマルチスレッドの練習  
+Visual Studio Code ではなく、 Visual Studio 2022 を使ってください  
 
 ![20211014blog3.png](./docs/img/20211014blog3.png)  
 ![20211015blog4.png](./docs/img/20211015blog4.png)  
