@@ -16,7 +16,7 @@
             this.myAddress = myAddress;
         }
 
-        public void Run()
+        private void Run()
         {
             Trace.WriteLine($"{myName} Begin");
             while (true)

@@ -18,6 +18,7 @@
         <Button Width="180" Height="20" Content="P26 notify notifyAll wait" Background="#EEFFEE" Click="P26NotifyNotifyAllWaitButton_Click"/>
         <Button Width="270" Height="20" Content="P50 Single Threaded Execution (Unsafe)" Background="#EEFFEE" Click="P50SingleThreadedExecutionUnsafeButton_Click"/>
         <Button Width="270" Height="20" Content="P58 Single Threaded Execution (Thread safe)" Background="#EEFFEE" Click="P58SingleThreadedExecutionThreadSafeButton_Click"/>
+        <Button Width="180" Height="20" Content="P74 Semaphore" Background="#EEFFEE" Click="P74SemaphoreButton_Click"/>
     </WrapPanel>
     
 </Window>
