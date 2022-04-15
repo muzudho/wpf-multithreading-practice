@@ -8,6 +8,7 @@
     using WpfMultithreadingPractice.P50SingleThreadedExecution;
     using WpfMultithreadingPractice.P58SingleThreadedExecution;
     using WpfMultithreadingPractice.P74Semaphore;
+    using WpfMultithreadingPractice.P78Practice;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -369,6 +370,11 @@
         private void P74SemaphoreButton_Click(object sender, RoutedEventArgs e)
         {
             MainV74.Enter();
+        }
+
+        private void P78Practice_Click(object sender, RoutedEventArgs e)
+        {
+            MainV78.Enter();
         }
     }
 }
