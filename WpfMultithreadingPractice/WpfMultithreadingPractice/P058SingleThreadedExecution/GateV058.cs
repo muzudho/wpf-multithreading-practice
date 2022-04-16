@@ -1,13 +1,13 @@
-﻿namespace WpfMultithreadingPractice.P58SingleThreadedExecution
+﻿namespace WpfMultithreadingPractice.P058SingleThreadedExecution
 {
-    using WpfMultithreadingPractice.P50SingleThreadedExecution;
+    using WpfMultithreadingPractice.P050SingleThreadedExecution;
 
     /// <summary>
     /// P53 スレッドセーフなGateクラス
     /// 
     /// 📖 [lock statement](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/statements/lock)
     /// </summary>
-    public class GateV58 : GateV50
+    public class GateV058 : GateV050
     {
         private readonly object lockObj = new object();
 

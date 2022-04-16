@@ -1,11 +1,11 @@
-﻿namespace WpfMultithreadingPractice.P50SingleThreadedExecution
+﻿namespace WpfMultithreadingPractice.P050SingleThreadedExecution
 {
     using System.Diagnostics;
 
     /// <summary>
     /// P53 スレッドセーフではないGateクラス
     /// </summary>
-    public class GateV50
+    public class GateV050
     {
         protected int Counter { get; set; } = 0;
         protected string Name { get; set; } = "Nobody";

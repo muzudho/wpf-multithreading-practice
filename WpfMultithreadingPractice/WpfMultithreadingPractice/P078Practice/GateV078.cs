@@ -1,4 +1,4 @@
-﻿namespace WpfMultithreadingPractice.P78Practice
+﻿namespace WpfMultithreadingPractice.P078Practice
 {
     using System.Diagnostics;
     using System.Threading;
@@ -6,7 +6,7 @@
     /// <summary>
     /// P53 スレッドセーフではないGateクラス
     /// </summary>
-    public class GateV78
+    public class GateV078
     {
         protected int Counter { get; set; } = 0;
         protected string Name { get; set; } = "Nobody";

@@ -20,6 +20,7 @@
         <Button Width="270" Height="20" Content="P58 Single Threaded Execution (Thread safe)" Background="#EEFFEE" Click="P58SingleThreadedExecutionThreadSafeButton_Click"/>
         <Button Width="180" Height="20" Content="P74 Semaphore" Background="#EEFFEE" Click="P74SemaphoreButton_Click"/>
         <Button Width="180" Height="20" Content="P78 Practice" Background="#EEFFEE" Click="P78Practice_Click"/>
+        <Button Width="180" Height="20" Content="P80 ListA1-2" Background="#EEFFEE" Click="P080List1o13Button_Click"/>
     </WrapPanel>
     
 </Window>

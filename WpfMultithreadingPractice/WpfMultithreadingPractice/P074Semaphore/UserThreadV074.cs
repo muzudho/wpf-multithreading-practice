@@ -1,15 +1,15 @@
-﻿namespace WpfMultithreadingPractice.P74Semaphore
+﻿namespace WpfMultithreadingPractice.P074Semaphore
 {
     using System;
     using System.Diagnostics;
     using System.Threading;
 
-    public class UserThreadV74
+    public class UserThreadV074
     {
         private readonly static Random random = new Random(26535);
-        private readonly BoundedResourceV74 resource;
+        private readonly BoundedResourceV074 resource;
 
-        public UserThreadV74(BoundedResourceV74 resource)
+        public UserThreadV074(BoundedResourceV074 resource)
         {
             this.resource = resource;
         }

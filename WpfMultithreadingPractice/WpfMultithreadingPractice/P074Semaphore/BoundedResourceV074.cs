@@ -1,10 +1,10 @@
-﻿namespace WpfMultithreadingPractice.P74Semaphore
+﻿namespace WpfMultithreadingPractice.P074Semaphore
 {
     using System;
     using System.Diagnostics;
     using System.Threading;
 
-    public class BoundedResourceV74
+    public class BoundedResourceV074
     {
         private readonly SemaphoreSlim semaphore;
         private readonly int permits;
@@ -14,7 +14,7 @@
         /// 
         /// </summary>
         /// <param name="permits">リソースの個数</param>
-        public BoundedResourceV74(int permits)
+        public BoundedResourceV074(int permits)
         {
             this.semaphore = new SemaphoreSlim(0, permits);
             this.permits = permits;
@@ -42,9 +42,9 @@
         /// </summary>
         private void DoUse()
         {
-            LogV74.PrintLine($"BEGIN: used = {this.permits - this.semaphore.CurrentCount}");
+            LogV074.PrintLine($"BEGIN: used = {this.permits - this.semaphore.CurrentCount}");
             Thread.Sleep(random.Next(500)+500);
-            LogV74.PrintLine($"END:   used = {this.permits - this.semaphore.CurrentCount}");
+            LogV074.PrintLine($"END:   used = {this.permits - this.semaphore.CurrentCount}");
         }
     }
 }

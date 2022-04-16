@@ -1,15 +1,15 @@
-﻿namespace WpfMultithreadingPractice.P78Practice
+﻿namespace WpfMultithreadingPractice.P050SingleThreadedExecution
 {
     using System.Diagnostics;
     using System.Threading;
 
-    public class UserThreadV78
+    public class UserThreadV050
     {
-        private readonly GateV78 gate;
+        private readonly GateV050 gate;
         private readonly string myName;
         private readonly string myAddress;
 
-        public UserThreadV78(GateV78 gate, string myName, string myAddress)
+        public UserThreadV050(GateV050 gate, string myName, string myAddress)
         {
             this.gate = gate;
             this.myName = myName;

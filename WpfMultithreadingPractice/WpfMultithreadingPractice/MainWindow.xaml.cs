@@ -5,10 +5,11 @@
     using System.Threading;
     using System.Windows;
     using WpfMultithreadingPractice.Models;
-    using WpfMultithreadingPractice.P50SingleThreadedExecution;
-    using WpfMultithreadingPractice.P58SingleThreadedExecution;
-    using WpfMultithreadingPractice.P74Semaphore;
-    using WpfMultithreadingPractice.P78Practice;
+    using WpfMultithreadingPractice.P050SingleThreadedExecution;
+    using WpfMultithreadingPractice.P058SingleThreadedExecution;
+    using WpfMultithreadingPractice.P074Semaphore;
+    using WpfMultithreadingPractice.P078Practice;
+    using WpfMultithreadingPractice.P080_List1o13;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -359,22 +360,27 @@
         /// <param name="e"></param>
         private void P50SingleThreadedExecutionUnsafeButton_Click(object sender, RoutedEventArgs e)
         {
-            MainV50.Enter();
+            MainV050.Enter();
         }
 
         private void P58SingleThreadedExecutionThreadSafeButton_Click(object sender, RoutedEventArgs e)
         {
-            MainV58.Enter();
+            MainV058.Enter();
         }
 
         private void P74SemaphoreButton_Click(object sender, RoutedEventArgs e)
         {
-            MainV74.Enter();
+            MainV074.Enter();
         }
 
         private void P78Practice_Click(object sender, RoutedEventArgs e)
         {
-            MainV78.Enter();
+            MainV078.Enter();
+        }
+
+        private void P080List1o13Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainV080.Enter();
         }
     }
 }
